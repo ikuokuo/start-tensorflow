@@ -66,19 +66,36 @@ sudo ln -sf libcusolver.so.11 libcusolver.so.10
 ## IPython kernel
 
 ```bash
+# install ipykernel (conda new environment)
 conda activate tf
 conda install ipykernel -y
 python -m ipykernel install --user --name tf --display-name "Python TF"
-```
 
-Run JupyterLab:
-
-```bash
+# run JupyterLab (conda base environment with JupyterLab)
 conda activate base
 jupyter lab
 ```
 
-Open http://localhost:8888/ :
+<!--
+jupyter kernelspec list
+jupyter kernelspec remove tf
+-->
+
+Alternative, using [nb_conda](https://github.com/Anaconda-Platform/nb_conda) extension:
+
+```bash
+# install ipykernel (conda new environment)
+conda activate tf
+conda install ipykernel -y
+
+# install nb_conda (conda base environment with JupyterLab)
+conda activate base
+conda install nb_conda -y
+# run JupyterLab
+jupyter lab
+```
+
+Finally, visit http://localhost:8888/ :
 
 ![](images/jupyterlab_tf.png)
 
@@ -89,3 +106,4 @@ Open http://localhost:8888/ :
   - [GPU support](https://www.tensorflow.org/install/gpu)
 - [Install TensorFlow - Anaconda](https://docs.anaconda.com/anaconda/user-guide/tasks/tensorflow/)
   - [anaconda / packages / tensorflow](https://anaconda.org/anaconda/tensorflow)
+- [Installing the IPython kernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html)
